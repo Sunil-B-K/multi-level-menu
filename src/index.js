@@ -1,13 +1,70 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import "./App.css";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./routes/Root";
+import Services from "./routes/Services";
+import About from "./routes/About";
+import WebDesign from "./routes/Web-design";
+import WebDev from "./routes/Web-dev";
+import Node from "./routes/Node";
+import Php from "./routes/Php";
+import Frontend from "./routes/Frontend";
+import Seo from "./routes/Seo";
+
+const router = createBrowserRouter([
+  {
+    element: <Root />,
+
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "services",
+        element: <Services />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "web-design",
+        element: <WebDesign />,
+      },
+      {
+        path: "web-dev",
+        element: <WebDev />,
+      },
+      {
+        path: "frontend",
+        element: <Frontend />,
+      },
+      {
+        path: "node",
+        element: <Node />,
+      },
+      {
+        path: "php",
+        element: <Php />,
+      },
+      {
+        path: "seo",
+        element: <Seo />,
+      },
+    ],
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
